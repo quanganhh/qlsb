@@ -20,6 +20,7 @@ function login() {
         url: "http://localhost:9999/api/authentication/login",
         data: data,
         success: function (result) {
+            console.log(result.accessToken);
             localStorage.setItem("mytokekeyheheheheeh", result.accessToken);
             if(typeof (result.accessToken) != 'undefined'){
                 window.location = "admin/index.html";
@@ -30,8 +31,4 @@ function login() {
             alert("SAi");
         }
     });
-    
-  
 }
-
-

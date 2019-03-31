@@ -3,14 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-$(document).ready(function (){
-    check_token();
-});
-
-function check_token(){
-    var token = localStorage.getItem("mytokekeyheheheheeh");
-    if(token == null){
-        window.location = "../index.html";
-    }
+/* chưa có token  thì vào ra đăng nhập */
+if(localStorage.getItem('myToken') == null){
+    window.location = 'login.html';
 }

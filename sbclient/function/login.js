@@ -3,6 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* có token rồi thì vào trang chủ */
+if (localStorage.getItem('myToken') != null) {
+    window.location = 'index.html';
+}
 
 function login() {
     var username = $('#username').val();
@@ -20,10 +24,10 @@ function login() {
         url: "http://localhost:9999/api/authentication/login",
         data: data,
         success: function (result) {
-            console.log(result.accessToken);
-            localStorage.setItem("mytokekeyheheheheeh", result.accessToken);
-            if(typeof (result.accessToken) != 'undefined'){
-                window.location = "admin/index.html";
+            //console.log(result.accessToken);
+            if (typeof (result.accessToken) != 'undefined') {
+                localStorage.setItem("myToken", result.accessToken);
+                window.location = "index.html";
             }
         },
         error: function (error) {

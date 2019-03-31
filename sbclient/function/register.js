@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* có token rồi thì vào trang chủ */
 
-
+if(localStorage.getItem('myToken') !== null){
+    window.location = 'index.html';
+}
 function register(){
     
     var username = $("#txt_email").val();
@@ -35,12 +38,12 @@ function register(){
         success: function (result) {
             if(result.isSuccess == true){
                 alert("Đăng ký thành công");
-                window.location = "index.html";
+                window.location = "login.html";
             }
         },
         error: function (error) {
-            //console.log("huu: " + error);
-            alert("Sai thông tin đăng ký");
+            console.log(error);
+            //alert("Sai thông tin đăng ký");
         }
     });
 }

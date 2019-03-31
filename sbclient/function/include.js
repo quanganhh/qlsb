@@ -10,7 +10,7 @@
 //    }
 //}
 
-/*  hàm gán link cho thẻ a , include k dùng <a href="link"></a> phải dùng <a href="path('đường dẫn file')"></a>*/
+/*  hàm gán link cho thẻ a , include k dùng <a href="link"></a> phải dùng <a onclick="path('đường dẫn file')"></a>*/
 function path(str) {
     window.location.href = 'index.html#' + str;
 }

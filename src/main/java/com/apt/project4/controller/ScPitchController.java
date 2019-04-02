@@ -21,7 +21,7 @@ import static org.springframework.http.ResponseEntity.ok;
  * @author toanngo92
  */
 @RestController
-@RequestMapping("/scfield")
+@RequestMapping("/scfiled")
 public class ScPitchController {
     @Autowired
     private ScPitchService spService;

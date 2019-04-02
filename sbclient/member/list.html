@@ -1,41 +1,29 @@
-    <!-- Main content -->
+<script src="function/member.js"></script>
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-         
-
+        
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách tài khoản</h3>
+              <h3 class="box-title">Danh sách thành viên</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table class="listMember table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Avatar</th>
                   <th>Email</th>
-                  <th>Số điện thoại</th>
-                  <th>Quyền</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>SĐT</th>
                   <th>Trạng thái</th>
+                  <th>Role</th>
                   <th>Thao tác</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td><image src="avatar.png"></td>
-                  <td>anhnq@gmail.com</td>
-                  <td>0966985707</td>
-                  <td>Admin</td>
-                  <td>Đang hoạt động</td>
-                  <td>
-                    <a href="#"><i class="fa fa-plus" style="width: 30px;color: #0c1;"></i></a>
-                    <a href="#"><i class="fa fa-edit" style="width: 30px;"></i></a>
-                    <a href="#"><i class="fa fa-trash" style="width: 30px; color:red"></i></a>
-                  </td>
-                </tr>
+                
                 </tbody>
               </table>
             </div>
@@ -48,16 +36,3 @@
       <!-- /.row -->
     </section>
     <!-- /.content -->
-    <script>
-      $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-          'paging'      : true,
-          'lengthChange': false,
-          'searching'   : false,
-          'ordering'    : true,
-          'info'        : true,
-          'autoWidth'   : false
-        })
-      })
-    </script>

@@ -1,5 +1,5 @@
 
-/* hàm include file html dạng index.html?path=file-html */
+/* hàm include file html dạng index.html?view=file-html */
 function loadData() {
    var path = window.location.search;
    var file = path.split('=');

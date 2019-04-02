@@ -27,6 +27,8 @@ function login() {
             //console.log(result.accessToken);
             if (typeof (result.accessToken) != 'undefined') {
                 localStorage.setItem("myToken", result.accessToken);
+                localStorage.setItem("userName", result.userName);
+                alert('Đăng nhập thành công!');
                 window.location = "index.html";
             }
         },

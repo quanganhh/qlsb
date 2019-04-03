@@ -3,7 +3,7 @@
     $.ajax({
         dataType: "json",
         type: "get",
-        url: "http://localhost:9999/api/scfiled",
+        url: "http://localhost:9999/api/scfield",
         headers: {
             "Authorization": "Bearer "+localStorage.getItem('myToken')
         },

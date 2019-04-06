@@ -5,20 +5,25 @@
  */
 package com.apt.project4.controller;
 
+import com.apt.project4.constant.MessageKeys;
+import com.apt.project4.model.ScPitch;
 import com.apt.project4.payload.DataListResponse;
+import com.apt.project4.payload.ScPtichAddNewRequest;
 import com.apt.project4.payload.SingleDataResponse;
 import com.apt.project4.service.ScPitchService;
 import com.apt.project4.service.UserService;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import static org.springframework.http.ResponseEntity.ok;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.springframework.http.ResponseEntity.ok;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -42,5 +47,9 @@ public class ScPitchController {
         SingleDataResponse response = new SingleDataResponse(spService.findById(scId));
         return ok(response);
     }
-    
-}   
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public ResponseEntity addNewScField(@Valid @RequestBody ScPtichAddNewRequest scPitchRequestobj){
+        ScPitch sp = spService.addNewScPitch(scPitchRequestobj);
+         return ok(new SingleDataResponse<>(MessageKeys.REGISTER_SUCCESS));
+    }
+}

@@ -14,6 +14,6 @@ import java.util.Optional;
  *
  * @author toanngo92
  */
-public interface ScPitchRepository extends JpaRepository<ScPitch, Long> {
+public interface ScPitchRepository extends JpaRepository<ScPitch, Integer> {
     
 }

@@ -32,10 +32,11 @@ public class ScPitchService {
     private ScPitchRepository scPitchRepository;
     @Autowired
     private ObjectMapper objectMapper;
-    public ScPitch findById( ){
-        return null;
+    public ScPitch findById(Integer sfId ){
+        return scPitchRepository.findById(sfId).orElse(null);
     }
     public List<ScPitch> findAll() {
         return scPitchRepository.findAll();
     }
+    
 }

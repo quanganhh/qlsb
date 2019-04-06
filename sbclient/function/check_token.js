@@ -3,14 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* chưa có token  thì vào ra đăng nhập */
+if (localStorage.getItem('myToken') == null) {
+    window.location = 'login.html';
+}
 
-$(document).ready(function (){
-    check_token();
+$(function () {
+    $('.showUserName').text(localStorage.getItem('userName'));
 });
 
-function check_token(){
-    var token = localStorage.getItem("mytokekeyheheheheeh");
-    if(token == null){
-        window.location = "../index.html";
+function logout() {
+    if (localStorage.getItem('myToken') != null) {
+        if (confirm('Bạn có chắc chắn muốn đăng xuất?') == true) {
+            localStorage.clear();
+            window.location = 'login.html';
+        }
+    } else {
+        window.location = 'login.html';
     }
 }

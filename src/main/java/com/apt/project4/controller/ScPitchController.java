@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author toanngo92
  */
 @RestController
-@RequestMapping("/scfield")
+@RequestMapping("/scfiled")
 public class ScPitchController {
     @Autowired
     private ScPitchService spService;

@@ -14,7 +14,7 @@
                 $.each(result.dataList, function(i, item){
                     var tt = 'Chưa được đặt';
                     if(item.status == 1) tt = 'Đã được đặt';
-                    html += '<tr><td>' + item.id + '</td><td>' + item.address + '</td><td>' + item.description + '</td><td>' + item.name + '</td><td>' + item.price + '</td><td>' + tt + '</td><td>1</td></tr>';
+                    html += '<tr><td>' + item.id + '</td><td>' + item.address + '</td><td>' + item.description + '</td><td>' + item.name + '</td><td>' + item.price + '</td><td>' + tt + '</td><td><a onclick="update_sc_field" fieldid="' + item.id + '" href="#">Cập nhật</a></td></tr>';
                 });
                 table.append(html);
                 $('.listPitch').dataTable();
@@ -25,4 +25,3 @@
         }
     });
 })();
-

@@ -1,0 +1,5 @@
+- database MySQL
+- Nếu máy có cài maven thì vào folder project: mvn spring-boot:run
+- Nếu máy không có cài maven, thì dung maven trên IDE cũng được
+- Nếu không có maven, thì trên IDE chạy file PROJECT_HOME\src\main\java\com\apt\project4\Application.java
+- Cấu hình kết nối với MySQL trong PROJECT_HOME\src\main\resources\application.properties

@@ -50,8 +50,15 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    //TODO: for test
-    public User saveUser(User user) {
+    // add new user 
+    public  User addNewUser(UserRegisteringRequest userRequestobj) {
+        userRequestobj.setPassword(passwordEncoder.encode(userRequestobj.getPassword()));
+        Role roles = roleService.findByRoleName(userRequestobj.getRoleName());
+        
+        User user = objectMapper.convertValue(userRequestobj, User.class);
+        user.setRole(roles);
+        
         return userRepository.save(user);
     }
+    
 }

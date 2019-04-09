@@ -1,3 +1,4 @@
 /target/
 /sbclient/nbproject/private/
 /logs/server.log
+/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst

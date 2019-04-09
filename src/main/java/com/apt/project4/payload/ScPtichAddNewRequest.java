@@ -21,6 +21,8 @@ public class ScPtichAddNewRequest {
     private String description;
     
     private String price;
+    
+    private String id;
 
     public String getName() {
         return name;
@@ -52,6 +54,14 @@ public class ScPtichAddNewRequest {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
 }

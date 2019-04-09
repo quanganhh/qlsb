@@ -9,6 +9,6 @@ public interface MessageKeys {
     String NEED_ACTIVATE_BY_ADMIN = "not activated by admin";
     String ROLE_NOT_MATCH = "role not match";
     String USERNAME_OR_PASSWORD_NOT_MATCH = "username or password is not match";
-
-
+    String UPDATE_SUCCESS = "Update success";
+    String DELETE_SUCCESS = "Delete success";
 }

@@ -11,20 +11,25 @@ if(localStorage.getItem('myToken') !== null){
 function register(){
     
     var username = $("#txt_email").val();
-    console.log($("#txt_email").val());
     var password = $("#txt_password").val();
-    console.log($("#txt_password").val());
-    var fist_name = $("#txt_first_name").val();
-    console.log($("#txt_first_name").val());
+    var first_name = $("#txt_first_name").val();
     var last_name = $("#txt_last_name").val();
-    console.log($("#txt_last_name").val());
     var phoneNumber = $("#phonenumber").val();
-    
+    var pass2 = $('#txt_password_confirm').val();
+    if(!username || !password || !first_name || !last_name || !phoneNumber){
+        alert('Nhập đầy đủ thông tin');
+        return false;
+    }
+    if(password != pass2){
+        alert('2 mật khẩu không khớp');
+        return false;
+    }
+    $('#btn-reg').addClass('btn btn-info').html('<i class="fa fa-spinner fa-spin"></i> Đăng kí');
     var roleName = "user";
     var data = JSON.stringify({
         "email": username,
         "password": password,
-        "firstName": fist_name,
+        "firstName": first_name,
         "lastName" : last_name,
         "roleName": roleName,
         "phoneNumber": phoneNumber,
@@ -37,13 +42,15 @@ function register(){
         data: data,
         success: function (result) {
             if(result.isSuccess == true){
+                $('#btn-reg').removeClass('btn btn-info').addClass('btn btn-primary').html('Đăng kí');
                 alert("Đăng ký thành công");
                 window.location = "login.html";
             }
         },
         error: function (error) {
+            $('#btn-reg').removeClass('btn btn-info').addClass('btn btn-primary').html('Đăng kí');
             console.log(error);
-            //alert("Sai thông tin đăng ký");
+            alert("Lỗi");
         }
     });
 }

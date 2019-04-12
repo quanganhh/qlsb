@@ -10,9 +10,12 @@ if (localStorage.getItem('myToken') != null) {
 
 function login() {
     var username = $('#username').val();
-    console.log(username);
     var password = $("#password").val();
-    console.log(password);
+    if(!username || !password){
+        alert('Nhập đầy đủ thông tin');
+        return false;
+    }
+    $('#btn-login').addClass('btn btn-info').html('<i class="fa fa-spinner fa-spin"></i> Đăng nhập');
     var data = JSON.stringify({
         "username": username,
         "password": password,
@@ -24,17 +27,19 @@ function login() {
         url: "http://localhost:9999/api/authentication/login",
         data: data,
         success: function (result) {
-            //console.log(result.accessToken);
             if (typeof (result.accessToken) != 'undefined') {
                 localStorage.setItem("myToken", result.accessToken);
                 localStorage.setItem("userName", result.userName);
                 alert('Đăng nhập thành công!');
                 window.location = "index.html";
+            }else{
+                $('#btn-login').removeClass('btn btn-info').addClass('btn btn-primary').html('Đăng nhập');
             }
         },
         error: function (error) {
-            console.log("huu: " + error);
-            alert("SAi");
+            $('#btn-login').removeClass('btn btn-info').addClass('btn btn-primary').html('Đăng nhập');
+            console.log(error);
+            alert("Sai");
         }
     });
 }

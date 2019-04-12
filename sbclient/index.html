@@ -46,7 +46,7 @@
             }
         </style>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini" onload="loadData()">
+    <body class="hold-transition skin-blue sidebar-mini" onload="loadHTML()">
         <div class="wrapper">
 
             <header class="main-header">
@@ -135,21 +135,16 @@
                             </a>
                         </li>
                         <li class="treeview">
-                            <a onclick="path('member-list');">
+                            <a onclick="path('member-list')">
                                 <i class="fa fa-user"></i>
                                 <span>Quản lý tài khoản</span>
                             </a>
                         </li>
                         <li class="treeview">
-                            <a href="#"><i class="glyphicon glyphicon-random"></i> <span>Quản lí sân bóng </span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
+                            <a onclick="path('pitch-list')">
+                                <i class="fa fa-futbol-o"></i>
+                                <span>Quản lý sân bóng</span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a onclick="path('pitch-add')"><i class="glyphicon glyphicon-asterisk"></i> Thêm sân</a></li>
-                                <li><a onclick="path('pitch-list')"><i class="glyphicon glyphicon-asterisk"></i> Danh sách</a></li> 
-                            </ul>
                         </li>
                     </ul>
                 </section>

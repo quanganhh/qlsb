@@ -71,7 +71,7 @@ public class ScPitchController {
     }
     
     // Delete Soccer Field
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
     public void deleteScField(@PathVariable String id){
         spService.deleteScPitch(id);
         //return ok(noContent().build(), MessageKeys.DELETE_SUCCESS);

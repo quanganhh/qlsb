@@ -19,20 +19,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author toanngo92
+ * @author DuySexy
  */
 @Entity
 @Table(name = "sc_pitch")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ScPitch.findAll", query = "SELECT s FROM ScPitch s"),
-    @NamedQuery(name = "ScPitch.findById", query = "SELECT s FROM ScPitch s WHERE s.id = :id"),
-    @NamedQuery(name = "ScPitch.findByAddress", query = "SELECT s FROM ScPitch s WHERE s.address = :address"),
-    @NamedQuery(name = "ScPitch.findByDescription", query = "SELECT s FROM ScPitch s WHERE s.description = :description"),
-    @NamedQuery(name = "ScPitch.findByName", query = "SELECT s FROM ScPitch s WHERE s.name = :name"),
-    @NamedQuery(name = "ScPitch.findByPrice", query = "SELECT s FROM ScPitch s WHERE s.price = :price"),
-    @NamedQuery(name = "ScPitch.findByStatus", query = "SELECT s FROM ScPitch s WHERE s.status = :status")})
+    @NamedQuery(name = "ScPitch.findAll", query = "SELECT s FROM ScPitch s")
+    , @NamedQuery(name = "ScPitch.findById", query = "SELECT s FROM ScPitch s WHERE s.id = :id")
+    , @NamedQuery(name = "ScPitch.findByAddress", query = "SELECT s FROM ScPitch s WHERE s.address = :address")
+    , @NamedQuery(name = "ScPitch.findByDescription", query = "SELECT s FROM ScPitch s WHERE s.description = :description")
+    , @NamedQuery(name = "ScPitch.findByName", query = "SELECT s FROM ScPitch s WHERE s.name = :name")})
 public class ScPitch implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,12 +47,6 @@ public class ScPitch implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @Basic(optional = false)
-    @Column(name = "price")
-    private float price;
-    @Basic(optional = false)
-    @Column(name = "status")
-    private short status;
 
     public ScPitch() {
     }
@@ -62,13 +55,11 @@ public class ScPitch implements Serializable {
         this.id = id;
     }
 
-    public ScPitch(Integer id, String address, String description, String name, float price, short status) {
+    public ScPitch(Integer id, String address, String description, String name) {
         this.id = id;
         this.address = address;
         this.description = description;
         this.name = name;
-        this.price = price;
-        this.status = status;
     }
 
     public Integer getId() {
@@ -101,22 +92,6 @@ public class ScPitch implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public short getStatus() {
-        return status;
-    }
-
-    public void setStatus(short status) {
-        this.status = status;
     }
 
     @Override

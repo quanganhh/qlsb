@@ -7,6 +7,7 @@ import static com.apt.project4.constant.MessageKeys.INVALID_EMAIL_FORMAT;
 import static com.apt.project4.constant.MessageKeys.REQUIRED_MSG;
 
 public class UserRegisteringRequest {
+    private String id;
 
     @NotBlank(message = REQUIRED_MSG)
     private String firstName;
@@ -30,7 +31,7 @@ public class UserRegisteringRequest {
     public String getFirstName() {
         return firstName;
     }
-
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -73,5 +74,13 @@ public class UserRegisteringRequest {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

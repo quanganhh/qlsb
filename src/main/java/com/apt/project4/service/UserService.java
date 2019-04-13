@@ -6,6 +6,7 @@ import com.apt.project4.model.User;
 import com.apt.project4.payload.UserRegisteringRequest;
 import com.apt.project4.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import static java.lang.Integer.parseInt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,15 @@ public class UserService {
         user.setRole(roles);
         
         return userRepository.save(user);
+    }
+    
+    // update user
+    public User updateUser(UserRegisteringRequest usersRequestobj) {
+        usersRequestobj.setPassword(passwordEncoder.encode(usersRequestobj.getPassword()));
+        User user = userRepository.getOne(Long.parseLong(usersRequestobj.getId()));
+        User us = objectMapper.convertValue(usersRequestobj, User.class);
+        
+        return  userRepository.save(us);
     }
     
 }

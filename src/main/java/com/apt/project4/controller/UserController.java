@@ -34,4 +34,11 @@ public class UserController {
         User user = userService.addNewUser(userRequestobj);
          return ok(new SingleDataResponse<>(MessageKeys.REGISTER_SUCCESS));
     }
+    
+    //update user
+    @RequestMapping(value = "", method = RequestMethod.PATCH)
+    public ResponseEntity updateUser(@Valid @RequestBody UserRegisteringRequest userRequestobj){
+        User user = userService.updateUser(userRequestobj);
+        return ok(new SingleDataResponse<>(MessageKeys.UPDATE_SUCCESS));
+    }
 }

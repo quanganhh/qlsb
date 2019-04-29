@@ -22,19 +22,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author toanngo92
+ * @author Duy Hoang
  */
 @Entity
 @Table(name = "booking_detail")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "BookingDetail.findAll", query = "SELECT b FROM BookingDetail b"),
-    @NamedQuery(name = "BookingDetail.findById", query = "SELECT b FROM BookingDetail b WHERE b.id = :id"),
-    @NamedQuery(name = "BookingDetail.findByDuration", query = "SELECT b FROM BookingDetail b WHERE b.duration = :duration"),
-    @NamedQuery(name = "BookingDetail.findByExpiredTime", query = "SELECT b FROM BookingDetail b WHERE b.expiredTime = :expiredTime"),
-    @NamedQuery(name = "BookingDetail.findByBookingId", query = "SELECT b FROM BookingDetail b WHERE b.bookingId = :bookingId"),
-    @NamedQuery(name = "BookingDetail.findBySpId", query = "SELECT b FROM BookingDetail b WHERE b.spId = :spId")})
+    @NamedQuery(name = "BookingDetail.findAll", query = "SELECT b FROM BookingDetail b")
+    , @NamedQuery(name = "BookingDetail.findById", query = "SELECT b FROM BookingDetail b WHERE b.id = :id")
+    , @NamedQuery(name = "BookingDetail.findBySfDurationId", query = "SELECT b FROM BookingDetail b WHERE b.sfDurationId = :sfDurationId")
+    , @NamedQuery(name = "BookingDetail.findByBookingDate", query = "SELECT b FROM BookingDetail b WHERE b.bookingDate = :bookingDate")
+    , @NamedQuery(name = "BookingDetail.findByBookingId", query = "SELECT b FROM BookingDetail b WHERE b.bookingId = :bookingId")
+    , @NamedQuery(name = "BookingDetail.findBySpId", query = "SELECT b FROM BookingDetail b WHERE b.spId = :spId")
+    , @NamedQuery(name = "BookingDetail.findByStatus", query = "SELECT b FROM BookingDetail b WHERE b.status = :status")})
 public class BookingDetail implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,18 +44,21 @@ public class BookingDetail implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "duration")
-    private int duration;
+    @Column(name = "sf_duration_id")
+    private int sfDurationId;
     @Basic(optional = false)
-    @Column(name = "expired_time")
+    @Column(name = "booking_date")
     @Temporal(TemporalType.DATE)
-    private Date expiredTime;
+    private Date bookingDate;
     @Basic(optional = false)
     @Column(name = "booking_id")
     private int bookingId;
     @Basic(optional = false)
     @Column(name = "sp_id")
     private int spId;
+    @Basic(optional = false)
+    @Column(name = "status")
+    private int status;
 
     public BookingDetail() {
     }
@@ -62,12 +67,13 @@ public class BookingDetail implements Serializable {
         this.id = id;
     }
 
-    public BookingDetail(Integer id, int duration, Date expiredTime, int bookingId, int spId) {
+    public BookingDetail(Integer id, int sfDurationId, Date bookingDate, int bookingId, int spId, int status) {
         this.id = id;
-        this.duration = duration;
-        this.expiredTime = expiredTime;
+        this.sfDurationId = sfDurationId;
+        this.bookingDate = bookingDate;
         this.bookingId = bookingId;
         this.spId = spId;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -78,20 +84,20 @@ public class BookingDetail implements Serializable {
         this.id = id;
     }
 
-    public int getDuration() {
-        return duration;
+    public int getSfDurationId() {
+        return sfDurationId;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void setSfDurationId(int sfDurationId) {
+        this.sfDurationId = sfDurationId;
     }
 
-    public Date getExpiredTime() {
-        return expiredTime;
+    public Date getBookingDate() {
+        return bookingDate;
     }
 
-    public void setExpiredTime(Date expiredTime) {
-        this.expiredTime = expiredTime;
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
     public int getBookingId() {
@@ -108,6 +114,14 @@ public class BookingDetail implements Serializable {
 
     public void setSpId(int spId) {
         this.spId = spId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override
@@ -132,7 +146,7 @@ public class BookingDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "com.apt.project4.model.BookingDetail[ id=" + id + " ]";
+        return "model.BookingDetail[ id=" + id + " ]";
     }
     
 }

@@ -5,10 +5,11 @@ import javax.validation.constraints.NotBlank;
 
 import static com.apt.project4.constant.MessageKeys.INVALID_EMAIL_FORMAT;
 import static com.apt.project4.constant.MessageKeys.REQUIRED_MSG;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UserRegisteringRequest {
     private String id;
-
+    private BCryptPasswordEncoder passwordEncoder;
     @NotBlank(message = REQUIRED_MSG)
     private String firstName;
 
@@ -25,9 +26,38 @@ public class UserRegisteringRequest {
     @NotBlank(message = REQUIRED_MSG)
     private String password;
 
-    @NotBlank(message = REQUIRED_MSG)
     private String roleName;
+    
+    private int roleId;
 
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+    
+    private String avatarUrl;
+    
+    private int active;
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+    
     public String getFirstName() {
         return firstName;
     }

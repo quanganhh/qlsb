@@ -51,7 +51,7 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    public Long getUserIdFromJWT(String token) {
+    public int getUserIdFromJWT(String token) {
         Claims claims = Jwts.parser()
                 .setSigningKey(jwtConfiguration.getSecret())
                 .parseClaimsJws(token)
@@ -64,7 +64,7 @@ public class JwtTokenProvider {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return Long.parseLong(strId);
+        return Integer.parseInt(strId);
     }
 
     public String resolveToken(HttpServletRequest request) {

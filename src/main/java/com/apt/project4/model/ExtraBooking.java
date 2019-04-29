@@ -19,16 +19,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author toanngo92
+ * @author Duy Hoang
  */
 @Entity
 @Table(name = "extra_booking")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ExtraBooking.findAll", query = "SELECT e FROM ExtraBooking e"),
-    @NamedQuery(name = "ExtraBooking.findById", query = "SELECT e FROM ExtraBooking e WHERE e.id = :id"),
-    @NamedQuery(name = "ExtraBooking.findByDetailBookingId", query = "SELECT e FROM ExtraBooking e WHERE e.detailBookingId = :detailBookingId")})
+    @NamedQuery(name = "ExtraBooking.findAll", query = "SELECT e FROM ExtraBooking e")
+    , @NamedQuery(name = "ExtraBooking.findById", query = "SELECT e FROM ExtraBooking e WHERE e.id = :id")
+    , @NamedQuery(name = "ExtraBooking.findByDetailBookingId", query = "SELECT e FROM ExtraBooking e WHERE e.detailBookingId = :detailBookingId")})
 public class ExtraBooking implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -89,7 +90,7 @@ public class ExtraBooking implements Serializable {
 
     @Override
     public String toString() {
-        return "com.apt.project4.model.ExtraBooking[ id=" + id + " ]";
+        return "model.ExtraBooking[ id=" + id + " ]";
     }
     
 }

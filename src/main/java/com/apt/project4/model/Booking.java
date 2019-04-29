@@ -22,28 +22,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author toanngo92
+ * @author Duy Hoang
  */
 @Entity
 @Table(name = "booking")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Booking.findAll", query = "SELECT b FROM Booking b"),
-    @NamedQuery(name = "Booking.findById", query = "SELECT b FROM Booking b WHERE b.id = :id"),
-    @NamedQuery(name = "Booking.findByStatus", query = "SELECT b FROM Booking b WHERE b.status = :status"),
-    @NamedQuery(name = "Booking.findByTime", query = "SELECT b FROM Booking b WHERE b.time = :time"),
-    @NamedQuery(name = "Booking.findByTotalPrice", query = "SELECT b FROM Booking b WHERE b.totalPrice = :totalPrice"),
-    @NamedQuery(name = "Booking.findByUserId", query = "SELECT b FROM Booking b WHERE b.userId = :userId")})
+    @NamedQuery(name = "Booking.findAll", query = "SELECT b FROM Booking b")
+    , @NamedQuery(name = "Booking.findById", query = "SELECT b FROM Booking b WHERE b.id = :id")
+    , @NamedQuery(name = "Booking.findByTime", query = "SELECT b FROM Booking b WHERE b.time = :time")
+    , @NamedQuery(name = "Booking.findByTotalPrice", query = "SELECT b FROM Booking b WHERE b.totalPrice = :totalPrice")
+    , @NamedQuery(name = "Booking.findByUserId", query = "SELECT b FROM Booking b WHERE b.userId = :userId")})
 public class Booking implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "status")
-    private short status;
     @Basic(optional = false)
     @Column(name = "time")
     @Temporal(TemporalType.TIMESTAMP)
@@ -62,9 +59,8 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Booking(Integer id, short status, Date time, float totalPrice, int userId) {
+    public Booking(Integer id, Date time, float totalPrice, int userId) {
         this.id = id;
-        this.status = status;
         this.time = time;
         this.totalPrice = totalPrice;
         this.userId = userId;
@@ -76,14 +72,6 @@ public class Booking implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public short getStatus() {
-        return status;
-    }
-
-    public void setStatus(short status) {
-        this.status = status;
     }
 
     public Date getTime() {
@@ -132,7 +120,7 @@ public class Booking implements Serializable {
 
     @Override
     public String toString() {
-        return "com.apt.project4.model.Booking[ id=" + id + " ]";
+        return "model.Booking[ id=" + id + " ]";
     }
     
 }

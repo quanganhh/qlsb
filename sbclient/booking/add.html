@@ -1,0 +1,55 @@
+<script src="function/booking.js"></script>
+<section class="content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Chọn sân muốn đặt</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <select class="selectpicker form-control">
+                            <option value="" selected>Chọn một sân</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="dat-lich-wrap">
+                            <div class="dat-lich-content">
+                                <input type="text" class="form-control" id="date_dat_lich" readonly="">    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <a href="#" class="btn btn-default" id="btn_xem_khung_gio">Xem khung giờ</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách khung giờ</h3>
+                </div>
+                <div class="box-body">
+                    <table class=" list-time-duration table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Đặt lịch</th>
+                                <th>ID</th>
+                                <th>Tên khung giờ</th>
+                                <th>Đơn Giá</th>
+                                <th>Mô tả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <a href="#" class="btn btn-default" disabled id="btn_dat_lich">Đặt lịch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

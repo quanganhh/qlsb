@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UserPrincipal implements UserDetails {
 
-    private Long id;
+    private int id;
 
     private String userName;
 
@@ -25,7 +25,7 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id, String username, String password, String typeRole, Collection<? extends GrantedAuthority> authorities, boolean active) {
+    public UserPrincipal(int id, String username, String password, String typeRole, Collection<? extends GrantedAuthority> authorities, boolean active) {
         this.id = id;
         this.userName = username;
         this.password = password;
@@ -50,11 +50,11 @@ public class UserPrincipal implements UserDetails {
         );
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

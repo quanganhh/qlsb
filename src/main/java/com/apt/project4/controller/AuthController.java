@@ -57,7 +57,9 @@ public class AuthController {
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = jwtTokenProvider.generateToken(authentication);
-            return ok(new JwtAuthenticationResponse(token, username));
+            int userId = jwtTokenProvider.getUserIdFromJWT(token);
+            Long roleId = jwtTokenProvider.getRoleIdFromJWT(token);
+            return ok(new JwtAuthenticationResponse(token, username, userId, roleId));
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             String message = MessageKeys.USERNAME_OR_PASSWORD_NOT_MATCH;

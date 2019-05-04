@@ -13,6 +13,16 @@ import java.util.List;
 public class UserPrincipal implements UserDetails {
 
     private int id;
+    
+    private long roleId;
+
+    public long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(long roleId) {
+        this.roleId = roleId;
+    }
 
     private String userName;
 
@@ -25,11 +35,12 @@ public class UserPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(int id, String username, String password, String typeRole, Collection<? extends GrantedAuthority> authorities, boolean active) {
+    public UserPrincipal(int id, String username, String password, String typeRole, long roleId, Collection<? extends GrantedAuthority> authorities, boolean active) {
         this.id = id;
         this.userName = username;
         this.password = password;
         this.typeRole = typeRole;
+        this.roleId = roleId;
         this.authorities = authorities;
         this.active = active;
 
@@ -45,6 +56,7 @@ public class UserPrincipal implements UserDetails {
                 user.getEmail(),
                 user.getPassword(),
                 roleName,
+                user.getRole().getId(),
                 authorities,
                 user.isActive()
         );

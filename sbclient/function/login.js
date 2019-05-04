@@ -30,6 +30,8 @@ function login() {
             if (typeof (result.accessToken) != 'undefined') {
                 localStorage.setItem("myToken", result.accessToken);
                 localStorage.setItem("userName", result.userName);
+                localStorage.setItem("userId", result.userId);
+                localStorage.setItem("roleId", result.roleId);
                 alert('Đăng nhập thành công!');
                 window.location = "index.html";
             }else{

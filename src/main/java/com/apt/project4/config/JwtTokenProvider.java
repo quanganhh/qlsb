@@ -41,7 +41,7 @@ public class JwtTokenProvider {
         Map<String, Object> mapModel = new HashMap<>();
 
         mapModel.put(USER_ID,  userPrincipal.getId());
-        mapModel.put(USER_ROLE,  userPrincipal.getTypeRole());
+        mapModel.put(USER_ROLE,  userPrincipal.getRoleId());
 
         return Jwts.builder()//
                 .setSubject(mapper.writeValueAsString(mapModel))
@@ -65,6 +65,22 @@ public class JwtTokenProvider {
             e.printStackTrace();
         }
         return Integer.parseInt(strId);
+    }
+    
+    public Long getRoleIdFromJWT(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(jwtConfiguration.getSecret())
+                .parseClaimsJws(token)
+                .getBody();
+        Map<String, String> mapModel;
+        String roleId = "";
+        try {
+            mapModel = mapper.readValue(claims.getSubject(), new TypeReference<Map<String, String>>(){});
+            roleId = mapModel.get(USER_ROLE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return Long.parseLong(roleId);
     }
 
     public String resolveToken(HttpServletRequest request) {
